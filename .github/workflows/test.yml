@@ -1,0 +1,49 @@
+name: Test formula
+
+# Smoke-test the formula on every push (including the auto-bump pushes from
+# 514-labs/axp's release pipeline) and on PRs. style + audit cover all four
+# targets' URLs; install + test exercise the binary on the runner's own arch
+# (arm64 macOS + x86_64 Linux here — the two GitHub-hosted arches available).
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-14, ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Make the checkout a real tap so `brew style` uses the tap rubocop
+      # config (the loose third-party-tap profile, not homebrew-core's strict
+      # Sorbet-sigil rules) and `brew install/test` can address it by name.
+      - name: Install as a local tap
+        run: |
+          set -euo pipefail
+          TAP_DIR="$(brew --repository)/Library/Taps/514-labs/homebrew-tap"
+          rm -rf "$TAP_DIR"
+          mkdir -p "$(dirname "$TAP_DIR")"
+          cp -R "$GITHUB_WORKSPACE" "$TAP_DIR"
+
+      - name: brew style
+        run: brew style 514-labs/tap/axp
+
+      - name: brew audit
+        run: brew audit --strict --online 514-labs/tap/axp
+
+      - name: brew install
+        run: brew install --verbose 514-labs/tap/axp
+
+      - name: brew test
+        run: brew test --verbose 514-labs/tap/axp
