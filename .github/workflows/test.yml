@@ -25,16 +25,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Make the checkout a real tap so `brew style` uses the tap rubocop
+      # Installs brew on Linux (ubuntu-latest images don't ship it on PATH)
+      # and, because this repo is a tap, trusts it and symlinks the checkout
+      # into Homebrew's taps directory — so `brew style` uses the tap rubocop
       # config (the loose third-party-tap profile, not homebrew-core's strict
       # Sorbet-sigil rules) and `brew install/test` can address it by name.
-      - name: Install as a local tap
-        run: |
-          set -euo pipefail
-          TAP_DIR="$(brew --repository)/Library/Taps/514-labs/homebrew-tap"
-          rm -rf "$TAP_DIR"
-          mkdir -p "$(dirname "$TAP_DIR")"
-          cp -R "$GITHUB_WORKSPACE" "$TAP_DIR"
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
 
       - name: brew style
         run: brew style 514-labs/tap/axp
