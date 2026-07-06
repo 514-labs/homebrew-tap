@@ -31,7 +31,7 @@ jobs:
       # config (the loose third-party-tap profile, not homebrew-core's strict
       # Sorbet-sigil rules) and `brew install/test` can address it by name.
       - name: Set up Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
+        uses: Homebrew/actions/setup-homebrew@main
 
       - name: brew style
         run: brew style 514-labs/tap/axp
