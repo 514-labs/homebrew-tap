@@ -25,6 +25,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ubuntu-latest images don't ship Homebrew on PATH; this installs brew
+      # on Linux (and is a cheap no-op on macOS, where brew is preinstalled).
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
       # Make the checkout a real tap so `brew style` uses the tap rubocop
       # config (the loose third-party-tap profile, not homebrew-core's strict
       # Sorbet-sigil rules) and `brew install/test` can address it by name.
