@@ -1,25 +1,25 @@
 class Dnsglobe < Formula
   desc "Global DNS propagation checker TUI — watch a DNS record propagate across 34 public resolvers worldwide, on a world map in your terminal"
   homepage "https://github.com/514-labs/dnsglobe"
-  version "0.3.0"
+  version "0.3.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.0/dnsglobe-aarch64-apple-darwin.tar.xz"
-      sha256 "b72e6a140e5fd7a0fbcfc7d5475f15ea0e9bd8eff20489fc5ae1fb8b6d13c351"
+      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.1/dnsglobe-aarch64-apple-darwin.tar.xz"
+      sha256 "686d4caa66bd13fb673558b35459aeb11081e13c1f2a0b714fca63298709a1da"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.0/dnsglobe-x86_64-apple-darwin.tar.xz"
-      sha256 "b0b33e916edf394a4aaecff5e6680606ab3e0960b22c80edb71b7d8d04972fa6"
+      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.1/dnsglobe-x86_64-apple-darwin.tar.xz"
+      sha256 "e505c9d3bccff0dfd3ffc0c51e84b27b860d7d20329909b117c2e133aa4a763c"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.0/dnsglobe-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "41b415eb17b30322df0d70e3f67456089a76dea90810c86e36aa8875c08061ab"
+      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.1/dnsglobe-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "9700796e52137cddd442c5e596f3fd528b8daf3bec9e00684cc5d3d41fc54efd"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.0/dnsglobe-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "08fe903926550d33f2d10a41a15dd9ed16a7ef806b1fcd0b28fb41e6be56db27"
+      url "https://github.com/514-labs/dnsglobe/releases/download/v0.3.1/dnsglobe-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "8511dacc76ffb3e6da82d1ae50131b334d4cd220c658956e7e88627456d30fd4"
     end
   end
   license "MIT"
