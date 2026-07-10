@@ -3,47 +3,43 @@
 
 # AUTO-GENERATED — do not edit by hand.
 #
-# Regenerated on every stable `axp` CLI release by the `publish-homebrew`
+# Regenerated on every stable `ax` CLI release by the `publish-homebrew`
 # job in 514-labs/axp's .github/workflows/release-cli.yml, via
 # tooling/scripts/render-homebrew-formula.mjs. Hand edits are overwritten on
 # the next release; change the generator instead.
-#
-# ENG-3612 deprecation window: `axp` is the old name for the `ax` CLI. This
-# installs a byte-identical binary that prints a deprecation warning on every
-# invocation; switch to `brew install 514-labs/tap/ax`.
-class Axp < Formula
+class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
   version "0.5.146-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.146-rp/aarch64-apple-darwin/axp"
+      url "https://download.514.ax/stable/0.5.146-rp/aarch64-apple-darwin/ax"
       sha256 "cd9d3d895742dcf7b26e928e55bc49255226ad27ae145c1bf038a8bb4652bc2b"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.146-rp/x86_64-apple-darwin/axp"
+      url "https://download.514.ax/stable/0.5.146-rp/x86_64-apple-darwin/ax"
       sha256 "fd960b10e8c7cc392a79adf711f51c95612d0efcfa59f9217d2804d97b136b9a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.146-rp/aarch64-unknown-linux-gnu/axp"
+      url "https://download.514.ax/stable/0.5.146-rp/aarch64-unknown-linux-gnu/ax"
       sha256 "a3191b71e9981379a3448b5ad67c6317e7ec9b2b05a800d6bd5e1fdccae42ece"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.146-rp/x86_64-unknown-linux-gnu/axp"
+      url "https://download.514.ax/stable/0.5.146-rp/x86_64-unknown-linux-gnu/ax"
       sha256 "85f93767f390240bd8ac81f0d8946138d8023b024621695d788511c5221a91d1"
     end
   end
 
   def install
     # brew fetched (and sha256-verified) the per-arch binary, staged as
-    # `axp` (the CDN object's basename); put it on PATH.
-    bin.install "axp"
+    # `ax` (the CDN object's basename); put it on PATH.
+    bin.install "ax"
   end
 
   def caveats
@@ -71,9 +67,9 @@ class Axp < Formula
   end
 
   test do
-    # Keep the smoke test hermetic — `axp --version` otherwise pings the
+    # Keep the smoke test hermetic — `ax --version` otherwise pings the
     # update channel, which brew's test sandbox should not depend on.
     ENV["AXP_NO_UPDATE_CHECK"] = "1"
-    assert_match version.to_s, shell_output("#{bin}/axp --version")
+    assert_match version.to_s, shell_output("#{bin}/ax --version")
   end
 end
