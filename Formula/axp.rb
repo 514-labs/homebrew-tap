@@ -14,36 +14,39 @@
 class Axp < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.234-rp"
+  version "0.5.235-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.234-rp/aarch64-apple-darwin/axp"
-      sha256 "691cc5b149a7a7541c3fcfe3ed065cd82b469cadc14d664eef1881d5222ecf88"
+      url "https://download.514.ax/stable/0.5.235-rp/aarch64-apple-darwin/axp.tar.gz"
+      sha256 "a36f40a72cba2835a19e497efb3fb72204e3dd8fa5cbeda5c6af4d729e085f0f"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.234-rp/x86_64-apple-darwin/axp"
-      sha256 "abf68c0e666f15b3bbb78aae70c1e0009dfe63987d3dd7b61998a3c200cd6b43"
+      url "https://download.514.ax/stable/0.5.235-rp/x86_64-apple-darwin/axp.tar.gz"
+      sha256 "1af6d48fd415fe3e10c5b11cd1efe4913e5f5aad071945dc9608c7ae919b61ab"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.234-rp/aarch64-unknown-linux-gnu/axp"
-      sha256 "12e7c64801aacc4dc68ea60d27efd33522ed8bd7c0f2b8772243da42d3863e52"
+      url "https://download.514.ax/stable/0.5.235-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "b1c67a5eac2e5df60187655d30ccff3a9ebb31ffea62bdd9196e576287fd9d92"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.234-rp/x86_64-unknown-linux-gnu/axp"
-      sha256 "33425e4a9232f4ec7cbebae0b3b1f016fdb77564cb0bc4c245efe4611b27fe78"
+      url "https://download.514.ax/stable/0.5.235-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "1b9944c6401d00494fc372bb0c54d03379dfa2a7a9539d1cb74a9b8591ba9d92"
     end
   end
 
   def install
-    # brew fetched (and sha256-verified) the per-arch binary, staged as
-    # `axp` (the CDN object's basename); put it on PATH.
-    bin.install "axp"
+    # brew fetched (and sha256-verified) the per-arch relocatable archive
+    # (`axp.tar.gz` = `axp` + libduckdb sidecar). Install the
+    # members into libexec so they stay adjacent for $ORIGIN / @loader_path,
+    # then symlink the executable onto PATH.
+    libexec.install Dir["*"]
+    bin.install_symlink libexec/"axp"
   end
 
   def caveats
@@ -73,6 +76,11 @@ class Axp < Formula
   test do
     # Keep the smoke test hermetic — `axp --version` otherwise pings the
     # update channel, which brew's test sandbox should not depend on.
+    # Clear loader path vars so the test exercises the archive's rpath
+    # ($ORIGIN / @loader_path) rather than a host LD_LIBRARY_PATH.
+    ENV.delete("LD_LIBRARY_PATH")
+    ENV.delete("DYLD_LIBRARY_PATH")
+    ENV.delete("DYLD_FALLBACK_LIBRARY_PATH")
     ENV["AXP_NO_UPDATE_CHECK"] = "1"
     assert_match version.to_s, shell_output("#{bin}/axp --version")
   end
