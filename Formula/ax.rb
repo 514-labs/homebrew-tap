@@ -10,29 +10,29 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.274-rp"
+  version "0.5.275-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.274-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "0ae65089666312603f1b5440f7518c03d182481c89b81311a8026c75412f4fe5"
+      url "https://download.514.ax/stable/0.5.275-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "82bb520f76dd3f6633d2a310f67d435eea3eb5d370cd6a2a5daa5889e3bc524b"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.274-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "9809345f9d9e3d79e3396f25fb0a4b8c522c3bf9cc3fbcc26c06349a50664fba"
+      url "https://download.514.ax/stable/0.5.275-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "5502407bb01ce63e10f4755c3ea3b37b3271a3acc819bd72da83a68083034026"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.274-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "103641be4f1d1adeae9c2e0f5347acef30d980d2a97b869b2a094656233908f4"
+      url "https://download.514.ax/stable/0.5.275-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "94c2a15fffd7b9a7631b390372f8ff8378eea42d7ca792775335959b3ae60ac9"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.274-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "119aa3478d2b6ab42f3f575e3bf8748dcc759dc6ea13b9cd137ef4d4792ddcfb"
+      url "https://download.514.ax/stable/0.5.275-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "fdab8f6e0021f48f6d4b9c2777a691dc46b4a87af8da25d3bafaef15b98473cc"
     end
   end
 
@@ -47,25 +47,17 @@ class Ax < Formula
 
   def caveats
     <<~EOS
-      Install MCP:
-          https://docs.514.ax/docs/mcp-install
-
-      Request access / sign up:
-          https://app.514.ax/sign-up
-          The AXP platform is currently in closed alpha.
-
       Sign in:
           https://app.514.ax/sign-in
           ax auth login --token <token>
+      Then get oriented:
+          ax auth status
 
-      Author intro experiment (CLI install test experiment):
-          ax intro <name> --cli <cli> --target-description '<description>' --install-docs <url> --install-command '<cmd>' --smoke-command '<cmd>'
-          ax auth login --token <token> → ax experiment validate <experiment.yaml>
-          ax run [--variant <id>] [--repeat <n>] <experiment.yaml>
-          ax query "SHOW TABLES" --table
-
-      Docs:
-          https://docs.514.ax/docs/getting-started
+      Create and run your first experiment:
+          ax experiment create my-experiment --template cli-install   # your agent writes the YAML from your product description
+        → ax experiment validate ./my-experiment.yaml
+        → ax experiment run ./my-experiment.yaml                      # smoke: 1 repeat per variant; scale with --repeat 5
+        → ax experiment query <exp-id from run output> --metric testPassRate
     EOS
   end
 
