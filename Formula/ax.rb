@@ -10,29 +10,29 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.320-rp"
+  version "0.5.321-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.320-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "25fddec7408e2063e11dd0334eee19a6c82141267a9c7bfbd49f10bbf613c2ac"
+      url "https://download.514.ax/stable/0.5.321-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "362899436df0042d9898d6e4d9a8d476a6f679454f855b7f23de34cf54bfd018"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.320-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "d12226acc0047ee4701ea8e731b641513eec7fd9cd5b9a61eec81afc026c44d5"
+      url "https://download.514.ax/stable/0.5.321-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "806592a3e4e9b817654a61ca8d761ef3f3b742c3914e6b47b59a0f26bbe8007b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.320-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "25a25c67c30f55e1e0ca9e5802fbfd7484335e8e0338f839d929eb61275d54bb"
+      url "https://download.514.ax/stable/0.5.321-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "3cccf02a1baf6b0359da897adce6c1da7d750de07d5b8a6d5dda3a723111bca0"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.320-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "4322db1bcf364bdeb0f05f4545c830e3eb95848fbbba8f84cf2624d7e4b59709"
+      url "https://download.514.ax/stable/0.5.321-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "9c3d554342d54191bba3acf9b6d48562e62fbb7bdc42e9460ff2d37574c643f5"
     end
   end
 
@@ -53,7 +53,7 @@ class Ax < Formula
       Then get oriented:
           ax auth status
 
-      Create and run your first experiment:
+      Create and run an experiment:
           ax experiment create my-experiment --template cli-install   # your agent writes the YAML from your product description
         → ax experiment validate ./my-experiment.yaml
         → ax experiment run ./my-experiment.yaml                      # smoke: 1 repeat per variant; scale with --repeat 5
