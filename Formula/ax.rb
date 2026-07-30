@@ -10,29 +10,29 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.554-rp"
+  version "0.5.555-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.554-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "42938b869a0cf8dbc17cc4cacc5a44d49868373ec7fc615d8e40f6ef5065a3db"
+      url "https://download.514.ax/stable/0.5.555-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "a716d5982bce17ec80a70f65a43db1e4c5ab362f408e8e65c8d71eba07cf8c46"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.554-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "abc6cb56e8ea16630c6f71816788e9b357582e032d1e92afb7678055f01d611d"
+      url "https://download.514.ax/stable/0.5.555-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "d72e4135168158d2df77a795036352379dd3a9b8bb7a99da4fbf17e69d06a3a9"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.554-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "ec09cf92dddd862eea001c72926d6542c1a83dac7c9a9c503d3d7750c6d6787c"
+      url "https://download.514.ax/stable/0.5.555-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "0da42186ff3f36477efeecb9c15c8f61bea8d2f342483d87b736feb20160f722"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.554-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "2c8a57173dae7e8a7af7ec19542b1479d5ab7698bfa358dbded7e93fad483a19"
+      url "https://download.514.ax/stable/0.5.555-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "106651d66bfcc8379c28c920bccc73c75cb69f8daa705f95454b591722fd76a5"
     end
   end
 
@@ -53,11 +53,9 @@ class Ax < Formula
       Then get oriented:
           ax auth status
 
-      Create and run an experiment:
-          ax experiment create my-experiment --template cli-install   # your agent writes the YAML from your product description
-        → ax experiment validate ./my-experiment.yaml
-        → ax experiment run ./my-experiment.yaml                      # smoke: 1 repeat per variant; scale with --repeat 5
-        → ax experiment query <exp-id from run output> --metric testPassRate
+      Next: walk your first experiment with `ax learn quickstart`
+
+      Already have experiments? `ax experiment list`
     EOS
   end
 
