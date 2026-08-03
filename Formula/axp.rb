@@ -14,29 +14,29 @@
 class Axp < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.619-rp"
+  version "0.5.620-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.619-rp/aarch64-apple-darwin/axp.tar.gz"
-      sha256 "55e97f2d94c70b347022f3b8d8ce2955c8efa0c59e554e1eb0ef060571cd4a9f"
+      url "https://download.514.ax/stable/0.5.620-rp/aarch64-apple-darwin/axp.tar.gz"
+      sha256 "4f43e3ebbf96b38bab30acad65fcd509694f2ce46c94d0b23079f2a87e65bb4a"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.619-rp/x86_64-apple-darwin/axp.tar.gz"
-      sha256 "3813f6eb1f4de713b0bb8effb39b1a7f8feaeccafe17f01fb0d656de2d5fd7e2"
+      url "https://download.514.ax/stable/0.5.620-rp/x86_64-apple-darwin/axp.tar.gz"
+      sha256 "7b266a7b7dcc0db2d36e7ecd18b9d3ba866d1ec0930f7e50dae9b83999e2771e"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.619-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
-      sha256 "600a5694f2faf82376ae17c5f2a60c5b21058fd5235fe632715b899288d1b9ae"
+      url "https://download.514.ax/stable/0.5.620-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "fd070fe0e12920841b915e214ded6f8714efe76a06430d32994c34d84fe43f89"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.619-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
-      sha256 "24ca69a858b7238057a992db086bb4381aba39d71960086d2a602bcc550b0c69"
+      url "https://download.514.ax/stable/0.5.620-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "f2712ab832fd74d22994e1de24c30863f0caef73dbda0efaa3cbcc3d8ef2dc37"
     end
   end
 
@@ -57,7 +57,8 @@ class Axp < Formula
       Then get oriented:
           ax auth status
 
-      Next: walk your first experiment with `ax learn quickstart`
+      Next: create your first experiment
+          ax experiment create my-first-experiment --template cli-install   # see --help for the required flags
 
       Already have experiments? `ax experiment list`
     EOS

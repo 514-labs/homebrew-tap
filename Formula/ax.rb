@@ -10,29 +10,29 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.619-rp"
+  version "0.5.620-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.619-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "dcb34e110c10108a8a70014c14ca2b1910d1ac8a242d4f61433123716d42732b"
+      url "https://download.514.ax/stable/0.5.620-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "c2e4f409986bb79a90b95c565beec95bfb6fabfe4964a072963e90f3d7a9b9db"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.619-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "00aa5c18c890746cea7f2ede006bbb01f0f387e8259faac9327fe3f48ac64ffe"
+      url "https://download.514.ax/stable/0.5.620-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "414b5f16ac78ff746560540168f9f710dc3e864944d747db6eccd28a6722140a"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.619-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "9297ddf6d7cc07cfaf4df34477df9f6725098cc7af8dcecd1f6f955803b3f966"
+      url "https://download.514.ax/stable/0.5.620-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "3ef6ccbe98c3a67e7fbb0d66214e98e7b9364952de9cb0e2467dbc0064054b7b"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.619-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "b0e3800cd0b13cc1f3f242b7aa8e887ebf561833f116be88e1cd94a41fc4f1b0"
+      url "https://download.514.ax/stable/0.5.620-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "8c587dc50c0eeede02fb5c20c2792e4c0120eb56bdabbee0f6b56dc05b993536"
     end
   end
 
@@ -53,7 +53,8 @@ class Ax < Formula
       Then get oriented:
           ax auth status
 
-      Next: walk your first experiment with `ax learn quickstart`
+      Next: create your first experiment
+          ax experiment create my-first-experiment --template cli-install   # see --help for the required flags
 
       Already have experiments? `ax experiment list`
     EOS
