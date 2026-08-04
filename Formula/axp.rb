@@ -14,29 +14,29 @@
 class Axp < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.647-rp"
+  version "0.5.648-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.647-rp/aarch64-apple-darwin/axp.tar.gz"
-      sha256 "ed9a3cea5119b9e4845d773ba56c9a893240e31fd7ce9067ac5f118835f97914"
+      url "https://download.514.ax/stable/0.5.648-rp/aarch64-apple-darwin/axp.tar.gz"
+      sha256 "5ef63467484b704a265d26102036fb034e3c4d2a11c6f546802e2f8b86661b17"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.647-rp/x86_64-apple-darwin/axp.tar.gz"
-      sha256 "f3ec5de47995f8d312c8e2ba16f75b95332ea52c6133a7a7e719c6d13d4b7dbb"
+      url "https://download.514.ax/stable/0.5.648-rp/x86_64-apple-darwin/axp.tar.gz"
+      sha256 "5e3dfb2d023587564c16ec68378f225a18dc0df7bc4ecf5fc64ec43a2be90315"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.647-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
-      sha256 "e352c91addcc14b19b28781e9b8e378d505b9b98bc94ba8d44f061c62975036b"
+      url "https://download.514.ax/stable/0.5.648-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "54c8e7097fc7c3544d44cf8db0d29af430272879e5e24e4b0364d99fe011ce7d"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.647-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
-      sha256 "8ec3733f3148dd1f815f8eac71d2ce283426d2da51cc7d9f8822ec6d2b4f533a"
+      url "https://download.514.ax/stable/0.5.648-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "23264d793da9ca0b809cf5da17ca46f6f7ed6ff0a830871aa0a29a6186f63983"
     end
   end
 
@@ -60,6 +60,7 @@ class Axp < Formula
       Next: create your first experiment
           ax experiment create my-first-experiment --template cli-install   # see --help for the required flags
 
+      Learn how to use ax: `ax learn`
       Already have experiments? `ax experiment list`
     EOS
   end

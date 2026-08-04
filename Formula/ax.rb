@@ -10,29 +10,29 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.647-rp"
+  version "0.5.648-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.647-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "a93824e7e57489943347d5a7a5a313214bbbb117578d042b5a2590bbf162000a"
+      url "https://download.514.ax/stable/0.5.648-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "8cae5ee77be7c8d90281c9f4588269980966c99029a9563c679077b00b8a5c86"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.647-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "f3e9d437f9705631091356d6a42fdaee5d71f3375c92261087af8b1ef8e50c3c"
+      url "https://download.514.ax/stable/0.5.648-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "74554b72e03c6cd0d61e226eb786224b8c0f199d30ed5b7dcaa800bc70af39b4"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.647-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "55b9afd000025f638007f090510d6aba803b18985b07dfd3aa42de77f1681bc8"
+      url "https://download.514.ax/stable/0.5.648-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "d3410d17ecf2b9790bbd5de23a1d19b3c3e13fae1fdc898994d760cf4be03e9b"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.647-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "1e6953159ab8af005e44b317ec23380487156eccc275bf9d37bc6b6fb25422cf"
+      url "https://download.514.ax/stable/0.5.648-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "927f57c6e30ee6394349bd8359e4a10490f9b093665f67b789ef474a4bb3b1d6"
     end
   end
 
@@ -56,6 +56,7 @@ class Ax < Formula
       Next: create your first experiment
           ax experiment create my-first-experiment --template cli-install   # see --help for the required flags
 
+      Learn how to use ax: `ax learn`
       Already have experiments? `ax experiment list`
     EOS
   end
