@@ -10,29 +10,29 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.672-rp"
+  version "0.5.673-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.672-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "a9e1344a34c88724a31e1a8f51c881c7f9db637ffd00013ce48e4e4532f96fc2"
+      url "https://download.514.ax/stable/0.5.673-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "963b793f1067eddf6de424ffa9bc5f2e79f11aa4696dbeaac2d7b69bb4efcd77"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.672-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "9b0baebbaf3ecedd4e521b7837d74cc9b184c6b29634e29c3a41576fb6c97153"
+      url "https://download.514.ax/stable/0.5.673-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "4427479247131e24810bfc4a3ca788f96018fee95e43c85b8e25da3780fc4f06"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.672-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "1bac5eb90b03ee450b530fdafe82e66a8b524cf79d1278b30e852cec451b78b5"
+      url "https://download.514.ax/stable/0.5.673-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "763d97945a6948c2179188b81853ac12757cc2a448de423a628304ff6026b13a"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.672-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "fe549a1f2f9fcaeb12dcc4c76cc8c8ee87347fd80b1a24d1b0d33c9cdd064279"
+      url "https://download.514.ax/stable/0.5.673-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "5494ada39748fbba4b1b7cc385e988227c7b6b0de89daac5c1b6b0a2067dabea"
     end
   end
 
