@@ -14,29 +14,29 @@
 class Axp < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.654-rp"
+  version "0.5.655-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.654-rp/aarch64-apple-darwin/axp.tar.gz"
-      sha256 "feee080aa3fd287f7b7f2ccd5044d98472dd510008c3ee27045cadba1fa07de5"
+      url "https://download.514.ax/stable/0.5.655-rp/aarch64-apple-darwin/axp.tar.gz"
+      sha256 "007142b8a3f1b40e4b2db3dd7163124320e41fd5a8d231bb029930bcabf9de7a"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.654-rp/x86_64-apple-darwin/axp.tar.gz"
-      sha256 "8b5db2dd86296fc49445e72ff220c8c211f05234ae94f490ab6cf10fda5c59ca"
+      url "https://download.514.ax/stable/0.5.655-rp/x86_64-apple-darwin/axp.tar.gz"
+      sha256 "d475b7b8de6a666eda4c79ea693783e20b788c4bd659cad0d02fc40665c01fdc"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.654-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
-      sha256 "0f76616dbd13a9cac2abff880d54c5a8896b122756409d927a23f260ef93e7fe"
+      url "https://download.514.ax/stable/0.5.655-rp/aarch64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "9076bd2854b788899142db358c2669431b90ec1ff8c3fb3c36e8a5c9fe34e11c"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.654-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
-      sha256 "f24f2826cb89f3d13ae7492125d0b5d2310a623167e354744aca5b294e5312f2"
+      url "https://download.514.ax/stable/0.5.655-rp/x86_64-unknown-linux-gnu/axp.tar.gz"
+      sha256 "6dcdc8c28a20b13773018d702116101b4c2bdf4fc30d6b80f1a90f62abdfcfce"
     end
   end
 
