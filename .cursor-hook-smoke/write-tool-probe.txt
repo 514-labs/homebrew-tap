@@ -1,0 +1,4 @@
+Probe written via the Write tool to trigger Cursor preToolUse/postToolUse
+for the Required 514 Admin team plugin hooks (plugin-only, no repo hooks.json).
+UTC: 2026-09-16T18:51:00Z
+agent: bc-5374a6ff-1115-414a-bee2-8e055bdf9759
