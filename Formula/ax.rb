@@ -10,39 +10,36 @@
 class Ax < Formula
   desc "CLI for the 514 agent-experience platform"
   homepage "https://514.ax"
-  version "0.5.1225-rp"
+  version "0.5.1226-rp"
 
   on_macos do
     on_arm do
-      url "https://download.514.ax/stable/0.5.1225-rp/aarch64-apple-darwin/ax.tar.gz"
-      sha256 "ef631f650f12afbdec7864772e4b3da8d400f8a0c655fa6d7223099159f3e08f"
+      url "https://download.514.ax/stable/0.5.1226-rp/aarch64-apple-darwin/ax.tar.gz"
+      sha256 "71f990bce296bdcd668e33bbe31f02c7d065a06d62082aa8ea139c884abe6549"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.1225-rp/x86_64-apple-darwin/ax.tar.gz"
-      sha256 "04185b335ba00035ca1b6d0c423c6633dfa3c6e8c174f9dc25e246e51d3e9902"
+      url "https://download.514.ax/stable/0.5.1226-rp/x86_64-apple-darwin/ax.tar.gz"
+      sha256 "0b928c559370656cc1d4bae07241abf06e7b1f0155a072b65a0b1f230e22844b"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://download.514.ax/stable/0.5.1225-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "e9af6ad797d906c0c57137106125b519101ef08e8a054a07abe83dff18c3a0b3"
+      url "https://download.514.ax/stable/0.5.1226-rp/aarch64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "be3b09a811b35efb9e6a4a0b9e836ea9a2d768e4f1d0cd5ed2ebf088ce5c3fdb"
     end
 
     on_intel do
-      url "https://download.514.ax/stable/0.5.1225-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
-      sha256 "7174e43dbdd338a15b36357979edaae0ec1fdc59e88347c9914723d815f76661"
+      url "https://download.514.ax/stable/0.5.1226-rp/x86_64-unknown-linux-gnu/ax.tar.gz"
+      sha256 "8d5f3b8ea86ec5e2192b8392f722c13123beb979a6408008c6ffaee76a851225"
     end
   end
 
   def install
-    # brew fetched (and sha256-verified) the per-arch relocatable archive
-    # (`ax.tar.gz` = `ax` + libduckdb sidecar). Install the
-    # members into libexec so they stay adjacent for $ORIGIN / @loader_path,
-    # then symlink the executable onto PATH.
-    libexec.install Dir["*"]
-    bin.install_symlink libexec/"ax"
+    # brew fetched (and sha256-verified) the per-arch archive
+    # (`ax.tar.gz`), whose only member is the `ax` executable.
+    bin.install "ax"
   end
 
   def caveats
@@ -64,11 +61,6 @@ class Ax < Formula
   test do
     # Keep the smoke test hermetic — `ax --version` otherwise pings the
     # update channel, which brew's test sandbox should not depend on.
-    # Clear loader path vars so the test exercises the archive's rpath
-    # ($ORIGIN / @loader_path) rather than a host LD_LIBRARY_PATH.
-    ENV.delete("LD_LIBRARY_PATH")
-    ENV.delete("DYLD_LIBRARY_PATH")
-    ENV.delete("DYLD_FALLBACK_LIBRARY_PATH")
     ENV["AXP_NO_UPDATE_CHECK"] = "1"
     assert_match version.to_s, shell_output("#{bin}/ax --version")
   end
